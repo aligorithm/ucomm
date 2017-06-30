@@ -1,0 +1,31 @@
+﻿body
+{
+    font-family:Arial, Helvetica, sans-serif;
+    height: 100%;
+    background-image: url("/img/stud.jpeg");
+    
+}
+#leftbar{
+    float:left;
+    background-color:firebrick;
+}
+
+#rightbar{
+    float:right;
+    background-color:aqua;
+}
+
+#signup{
+	background:rgba(30,30,30,.5);
+	min-height:615px;
+	padding:30px;
+}
+#signup label,h2{
+	color:#fff;
+}
+footer{
+   background-color:azure;
+}
+.container-fluid {
+    background:rgba(80,80,80,.4);
+}
