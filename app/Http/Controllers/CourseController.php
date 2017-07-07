@@ -35,7 +35,18 @@ class CourseController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate(request(),[
+            'title' => 'required',
+            'code' => 'required',
+            'description' => 'required',
+        ]);
+    $course = Course::create([
+        'title' => request('title'),
+        'code' => request('code'),
+        'description' => request('description'),
+    ]);
+
+    return view('partials.course',compact('course'));
     }
 
     /**

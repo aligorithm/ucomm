@@ -8,7 +8,7 @@ nav ul li a{
 	font-weight: bolder;
 	font-size: 30px;
 }
-#main_section{
+.main_section{
 	border: 2px solid #999 !important;
 	padding: 10px 10px;
 	border-radius: 6px;	
@@ -17,14 +17,14 @@ nav ul li a{
 	background-color: #fff !important;
 	border: 2px solid #999 !important;
 }
-#activities_container{
+.activities_container{
 	border: 2px solid #999;
 	border-radius: 6px;
 	height: 380px;
 	overflow-y:scroll;
 	padding: 0px 15px !important;
 }
-#activities_container .well{
+.activities_container .well{
 	padding: 5px !important;
 	margin:5px 2px !important;
 }
@@ -58,4 +58,8 @@ nav ul li a{
 #footer ul li a{
 	color: #fff;
 }
-
+.courses .active{
+	-webkit-box-shadow: 10px 10px 5px #000000;
+	-moz-box-shadow: 10px 10px 5px #000000;
+	box-shadow: 10px 10px 5px #000000;
+}

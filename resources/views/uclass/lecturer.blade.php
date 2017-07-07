@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="{{env('APP_URL')}}/fonts/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="{{env('APP_URL')}}/css/main.css">
     <style type="text/css">
-        #activities_container{
+        .activities_container{
             border: 2px solid #999;
             border-radius: 6px;
             height: 315px;
@@ -15,6 +15,7 @@
             padding: 0px 15px !important;
         }
     </style>
+    <title>Uclass | Lecturer</title>
 </head>
 <body>
 <header>
@@ -38,7 +39,7 @@
                     </li>
                     <li class="">
                         <a  style="height:60px;" class="" data-toggle="" href="#"><span class="fa fa-envelope-o"></span> Naeem Balogun
-                            <Ba class="fa fa-caret-down"></span></a>
+                            <span class="fa fa-caret-down"></span></a>
                     </li>
                 </ul>
             </div>
@@ -49,12 +50,13 @@
 <div class="container">
     <div class="row">
 
-        <div class="col-lg-7">
-            <div class="row" id="main_section">
+        <div class="col-lg-7 tab-content">
+            @foreach($courses as $course)
+            <div class="main_section tab-pane fade in row @if($course == $courses->first()) active @endif" id="{{$course->id}}_tab">
                 <div class="well">
                     <div class="col-lg-10">
-                        <h4><b>ICS 355 | Department of ICS | 3 Units <br>
-                                Title: Machine Learning Systems <br>
+                        <h4><b>{{$course->code}} | Department of {{$course->department}} | 3 Units <br>
+                                Title: {{$course->title}} <br>
                                 Next Lecture:</b> Next Thursday at 9:00am <br>
                             <b>Number of Students:57</b></h4>
                     </div>
@@ -62,10 +64,10 @@
                         <button class="btn btn-md btn-primary">Exit</button>
                     </div>
                     <br>
-                    <button class="btn btn-primary btn-lg right">Add Activity</button>
+                    <a class="btn btn-primary btn-lg right" data-toggle="modal" href="#add_activity_modal" id="add_activity_link">Add Activity</a>
 
                 </div>
-                <div class="col-lg-12" id="activities_container">
+                <div class="activities_container col-lg-12">
                     <center><h3><b>Activities</b></h3></center>
                     <div class="row well">
                         <div class="col-lg-9">
@@ -131,9 +133,53 @@
                 </div>
 
             </div>
+@endforeach
         </div>
+        
+        <!-- Modal -->
+        <div id="add_course_modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="contactModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h4 class="modal-title">Add Course</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="containter">
+                            <div class="row">
+                                <form class="form-horizontal" name="add_course_form" id="add_course_form" method="post" action="">
+                                    {{csrf_field()}}
+                                    <div class="col-xs-8">
+                                        <div class="form-group">
+                                            <label for="InputName" class="col-lg-4 control-label">Course Title</label>
+                                            <div class="col-lg-8">
+                                                <input type="text" class="form-control" name="title" id="title"  required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="InputName" class="col-lg-4 control-label">Course Code</label>
+                                            <div class="col-lg-8">
+                                                <input type="text" class="form-control" name="code" id="code"  required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="InputMessage" class="col-lg-4 control-label">Course Description</label>
+                                            <div class="col-lg-8">
+                                                <textarea name="description" id="description" class="form-control" rows="5" required></textarea>
+                                            </div>
+                                        </div>
 
+                                        <input type="submit" name="submit" id="submit" value="Submit" class="btn btn-info pull-right">
+                                    </div>
+                                </form>
 
+                            </div>
+
+                        </div>
+                    </div><!-- End of Modal body -->
+                </div><!-- End of Modal content -->
+            </div><!-- End of Modal dialog -->
+        </div><!-- End of Modal -->
 
 
         <div class="col-lg-5">
@@ -142,27 +188,32 @@
                     <div class="side_header">
                         <div class="col-lg-3">
                             <br>
-                            <button class="btn btn-sm btn-primary">Add Course</button>
+                            <a class="btn btn-sm btn-primary add_course"  data-toggle="modal" href="#add_course_modal">Add Course</a>
                         </div>
                         <div class="col-lg-9">
-                            <center>
-                                <h3><b>Courses</b></h3></center>
+                                <h3 style="text-align:center"><b>Courses</b></h3>
                         </div>
 
                     </div>
                 </div>
-                <div class="row well">
+
                     <div class="courses">
-                        <div class="col-lg-9">
-                            <h4><strong>Ics 306</strong> <br>
-                                <small>Human Computer Interaction</small>
-                            </h4>
+                        <ul style="list-style:none">
+                        @foreach($courses as $course)
+                            <li @if($course == $courses->first()) class="active" @endif><a data-toggle="tab" href="#{{$course->id}}_tab">
+                            <div class="row well">
+                        <div class="course">
+                            <div class="col-lg-9">
+                                <h4><strong>{{$course->code}}</strong> <br>
+                                    <small>{{$course->title}}</small>
+                                </h4>
+                            </div>
                         </div>
-                        <div class="col-lg-3">
-                            <br>
-                            <button class="btn btn-md btn-primary">Enter</button>
-                        </div>
-                    </div>
+                            </div>
+                            </a></li>
+                        @endforeach
+                        </ul>
+
                 </div>
             </div>
         </div>
@@ -175,14 +226,17 @@
             <div class="col-lg-3">
                 <ul>
                     <li><a href=""><b>Term of Use</b></a></li><b style="color:white;">|</b>
-                    <li><a href=""><b>Privacy</a></b></li>
+                    <li><a href=""><b>Privacy</b></a></li>
                 </ul>
             </div>
             <div class="col-lg-3">
-                <p><b>Copyright &copy Umbrella, 2017</b></p>
+                <p><b>Copyright &copy; Ucomm 2017</b></p>
             </div>
         </div>
     </div>
+    <script src="{{env('APP_URL')}}/js/jquery.min.js"></script>
+    <script src="{{env('APP_URL')}}/js/bootstrap.min.js"></script>
+    <script src="{{env('APP_URL')}}/js/main.js"></script>
 </footer>
 </body>
 </html>

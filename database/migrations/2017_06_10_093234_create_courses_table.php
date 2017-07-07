@@ -20,6 +20,7 @@ class CreateCoursesTable extends Migration
             $table->string('code');
             $table->dateTime('time');
             $table->string('department');
+            $table->integer('units');
             $table->timestamps();
 
         });

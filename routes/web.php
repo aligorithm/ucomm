@@ -47,6 +47,7 @@ Route::get('/{slug}', 'UserController@show');
 Route::prefix('uclass')->group(function (){
     Route::get('/student', 'StudentController@index');
     Route::get('/courses', 'CourseController@index');
+    Route::post('/courses/create', 'CourseController@store');
 
     Route::get('/lecturer/login', 'Auth\LecturerLoginController@showLoginForm')->name('lecturer.login');
     Route::post('/lecturer/login', 'Auth\LecturerLoginController@login')->name('lecturer.login.submit');
