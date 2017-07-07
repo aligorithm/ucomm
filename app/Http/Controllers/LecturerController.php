@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Lecturer;
 
 class LecturerController extends Controller
 {
@@ -23,6 +24,6 @@ class LecturerController extends Controller
      */
     public function index()
     {
-        return view('lecturer');
+        return view('uclass.lecturer');
     }
 }

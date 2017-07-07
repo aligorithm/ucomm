@@ -1,0 +1,61 @@
+nav ul li a{
+	color: #fff !important;
+	font-weight: bolder;
+	font-size: 14px;
+}
+.navbar-brand{
+	color: #fff !important;
+	font-weight: bolder;
+	font-size: 30px;
+}
+#main_section{
+	border: 2px solid #999 !important;
+	padding: 10px 10px;
+	border-radius: 6px;	
+}
+.well{
+	background-color: #fff !important;
+	border: 2px solid #999 !important;
+}
+#activities_container{
+	border: 2px solid #999;
+	border-radius: 6px;
+	height: 380px;
+	overflow-y:scroll;
+	padding: 0px 15px !important;
+}
+#activities_container .well{
+	padding: 5px !important;
+	margin:5px 2px !important;
+}
+#courses_offered{
+	border: 2px solid #999;
+	border-radius: 6px;
+	overflow-y:scroll;
+	padding: 0px 10px !important;
+	max-height: 540px;
+	margin-left: 3px;
+}
+#courses_offered .well{
+	padding: 5px !important;
+	margin:5px 2px !important;
+}
+#footer{
+	margin-top: 5px;
+	background-color: #599a68;
+	padding:5px;
+	height: 48px;
+	color: #fff;
+}
+
+#footer ul li{
+	list-style: none;
+	display: inline;
+	padding:5px;
+	margin-right: 3px;
+}
+
+#footer ul li a{
+	color: #fff;
+}
+

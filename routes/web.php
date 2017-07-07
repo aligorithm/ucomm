@@ -23,7 +23,6 @@ Route::get('/session', function (){
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/lecturer', 'LecturerController@index')->name('lecturer');
 
 Route::post('posts/create', 'PostController@store');
 Route::post('posts/edit/{post}', 'PostController@update');
@@ -44,3 +43,14 @@ Route::post('posts/comments/replies/{reply}/edit', 'ReplyController@update');
 Route::post('posts/comments/replies/{reply}/delete', 'ReplyController@destroy');
 
 Route::get('/{slug}', 'UserController@show');
+
+Route::prefix('uclass')->group(function (){
+    Route::get('/student', 'StudentController@index');
+    Route::get('/courses', 'CourseController@index');
+
+    Route::get('/lecturer/login', 'Auth\LecturerLoginController@showLoginForm')->name('lecturer.login');
+    Route::post('/lecturer/login', 'Auth\LecturerLoginController@login')->name('lecturer.login.submit');
+    Route::get('/lecturer/register', 'Auth\LecturerRegisterController@showRegistrationForm')->name('lecturer.register');
+    Route::post('/lecturer/register', 'Auth\LecturerRegisterController@register')->name('lecturer.register.submit');
+    Route::get('/lecturer', 'LecturerController@index')->name('lecturer.dashboard');
+});

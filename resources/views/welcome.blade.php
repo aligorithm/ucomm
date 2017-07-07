@@ -45,6 +45,11 @@
                 <p class="lead">
                     <a href="#" class="btn btn-lg btn-secondary">Learn more</a>
                 </p>
+                <br>
+                <p class="lead">
+                    Are you a lecturer? Try Uclass, a class activity interface integrated with Ucomm. It's very convenient especially if your students are on Ucomm.
+                    <a href="/uclass/lecturer/login" class="btn btn-lg btn-secondary">Uclass</a>
+                </p>
             </div>
 
             <div class="mastfoot">
