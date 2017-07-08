@@ -11,7 +11,11 @@
 </head>
 <link rel="stylesheet" href="{{env('APP_URL')}}/css/bootstrap.css" />
 <link rel="stylesheet" href="{{env('APP_URL')}}/css/style.css" />
-
+<style>
+    body{color:#ffffff;}
+    a{color: #ffffff;}
+    a:hover{color:#ffffff;}
+</style>
 <body>
 <div class="container-fluid">
     <div class="row">
