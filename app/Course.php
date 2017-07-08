@@ -16,6 +16,6 @@ class Course extends Model
         return $this->hasMany(Activity::class);
     }
     public function students(){
-        return $this->hasMany(User::class);
+        return $this->belongsToMany(User::class);
     }
 }

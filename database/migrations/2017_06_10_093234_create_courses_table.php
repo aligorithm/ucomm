@@ -22,7 +22,12 @@ class CreateCoursesTable extends Migration
             $table->string('department');
             $table->integer('units');
             $table->timestamps();
+        });
 
+        Schema::create('course_user', function(Blueprint $table){
+            $table->integer('student_id');
+            $table->integer('course_id');
+            $table->primary(['student_id','course_id']);
         });
     }
 
