@@ -9,7 +9,7 @@
 </head>
 <body>
 <header>
-    <nav class="navbar" style="background-color:#599a68; border-radius:0;height:60px;">
+    <nav class="navbar" style="background-color:#33C5BA; border-radius:0;height:60px;">
         <div class="container">
             <div class="navbar-header">
                 <button  type="button" class="navbar-toggle"
