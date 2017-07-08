@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="{{env('APP_URL')}}/css/bootstrap.css">
-    <link rel="stylesheet" href="{{env('APP_URL')}}/fonts/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{env('APP_URL')}}/fonts/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="{{env('APP_URL')}}/css/main.css">
     <style type="text/css">
         .activities_container{
@@ -107,7 +107,7 @@
                 </div>
 
                     <div class="courses">
-                        <ul>
+                        <ul class="courses_list">
                         @foreach($courses as $course)
                             <li style="list-style:none" @if($course == $courses->first()) class="active" @endif><a data-toggle="tab" href="#{{$course->id}}_tab">
                             <div class="row well">

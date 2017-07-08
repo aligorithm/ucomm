@@ -1,4 +1,4 @@
-<li style="list-style:none" class="active"><a data-toggle="tab" href="#{{$course->id}}_tab" data-course-id="{{$course->id}}">
+<li style="list-style:none" class="active" data-course-id="{{$course->id}}" data-course-code="{{$course->code}}"><a data-toggle="tab" href="#{{$course->id}}_tab">
         <div class="row well">
             <div class="course">
                 <div class="col-lg-9">
