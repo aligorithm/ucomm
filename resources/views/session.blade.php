@@ -94,22 +94,8 @@
                     </div>
                 </div>
 
-
                 <div class="row">
-                    <div class="form-group col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                        <label>Student</label>
-                        <input type="radio" name="category" value="student" checked id="student">
-                    </div>
-
-                    <div class="form-group col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                        <label>Lecturer</label>
-                        <input type="radio" name="category" value="lecturer" id="lecturer">
-                    </div>
-
-                </div>
-
-                <div class="row">
-                    <div class="form-group col-lg-6 col-md-6 col-sm-12 col-xs-12{{ $errors->has('name') ? ' has-error' : '' }}">
+                    <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12{{ $errors->has('name') ? ' has-error' : '' }}">
                         <label for="name">Full Name</label>
                         <input type="text" name="name" class="form-control" placeholder="Full Name" value="{{ old('name') }}" required>
                         @if ($errors->has('name'))

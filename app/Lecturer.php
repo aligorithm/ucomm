@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Course;
 
 class Lecturer extends Authenticatable
 {
@@ -28,4 +29,8 @@ class Lecturer extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function courses(){
+        return $this->hasMany(Course::class);
+    }
 }

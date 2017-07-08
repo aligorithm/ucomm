@@ -38,7 +38,7 @@
                         <a href="index.php" style="height:60px;">Lecturer</a>
                     </li>
                     <li class="">
-                        <a  style="height:60px;" class="" data-toggle="" href="#"><span class="fa fa-envelope-o"></span> Naeem Balogun
+                        <a  style="height:60px;" class="" data-toggle="" href="#"><span class="fa fa-envelope-o"></span> Dr. Naeem Balogun
                             <span class="fa fa-caret-down"></span></a>
                     </li>
                 </ul>
@@ -51,9 +51,9 @@
     <div class="row">
 
         <div class="col-lg-7 tab-content">
-            @foreach($courses as $course)
-            <div class="main_section tab-pane fade in row @if($course == $courses->first()) active @endif" id="{{$course->id}}_tab">
-                <div class="well">
+            <div class="main_section">
+                @forelse($courses as $course)
+                <div class="well tab-pane fade in row @if($course == $courses->first()) active @endif" id="{{$course->id}}_tab">
                     <div class="col-lg-10">
                         <h4><b>{{$course->code}} | Department of {{$course->department}} | 3 Units <br>
                                 Title: {{$course->title}} <br>
@@ -68,7 +68,7 @@
 
                 </div>
                 <div class="activities_container col-lg-12">
-                    <center><h3><b>Activities</b></h3></center>
+                    <h3 align="center"><b>Activities</b></h3>
                     <div class="row well">
                         <div class="col-lg-9">
                             <h4><b>Assignment</b> <br>
@@ -81,105 +81,16 @@
                             <button class="btn btn-md btn-primary">More Info</button>
                         </div>
                     </div>
-
-                    <div class="row well">
-                        <div class="col-lg-9">
-                            <h4><b>Assignment</b> <br>
-                                <small>Expand the example attached to include support
-                                    ...</small>
-                            </h4>
-                        </div>
-                        <div class="col-lg-3">
-                            <span>on 1st July</span>
-                            <button class="btn btn-md btn-primary">More Info</button>
-                        </div>
-                    </div>
-                    <div class="row well">
-                        <div class="col-lg-9">
-                            <h4><b>Assignment</b> <br>
-                                <small>Expand the example attached to include support
-                                    ...</small>
-                            </h4>
-                        </div>
-                        <div class="col-lg-3">
-                            <span>on 1st July</span>
-                            <button class="btn btn-md btn-primary">More Info</button>
-                        </div>
-                    </div>
-                    <div class="row well">
-                        <div class="col-lg-9">
-                            <h4><b>Assignment</b> <br>
-                                <small>Expand the example attached to include support
-                                    ...</small>
-                            </h4>
-                        </div>
-                        <div class="col-lg-3">
-                            <span>on 1st July</span>
-                            <button class="btn btn-md btn-primary">More Info</button>
-                        </div>
-                    </div>
-                    <div class="row well">
-                        <div class="col-lg-9">
-                            <h4><b>Assignment</b> <br>
-                                <small>Expand the example attached to include support
-                                    ...</small>
-                            </h4>
-                        </div>
-                        <div class="col-lg-3">
-                            <span>on 1st July</span>
-                            <button class="btn btn-md btn-primary">More Info</button>
-                        </div>
-                    </div>
-                </div>
+                    @empty
+                        <div class="alert alert-warning">No courses yet! Add a course and get started.</div>
+                    @endforelse
 
             </div>
-@endforeach
+
         </div>
-        
-        <!-- Modal -->
-        <div id="add_course_modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="contactModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                        <h4 class="modal-title">Add Course</h4>
-                    </div>
-                    <div class="modal-body">
-                        <div class="containter">
-                            <div class="row">
-                                <form class="form-horizontal" name="add_course_form" id="add_course_form" method="post" action="">
-                                    {{csrf_field()}}
-                                    <div class="col-xs-8">
-                                        <div class="form-group">
-                                            <label for="InputName" class="col-lg-4 control-label">Course Title</label>
-                                            <div class="col-lg-8">
-                                                <input type="text" class="form-control" name="title" id="title"  required>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="InputName" class="col-lg-4 control-label">Course Code</label>
-                                            <div class="col-lg-8">
-                                                <input type="text" class="form-control" name="code" id="code"  required>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="InputMessage" class="col-lg-4 control-label">Course Description</label>
-                                            <div class="col-lg-8">
-                                                <textarea name="description" id="description" class="form-control" rows="5" required></textarea>
-                                            </div>
-                                        </div>
 
-                                        <input type="submit" name="submit" id="submit" value="Submit" class="btn btn-info pull-right">
-                                    </div>
-                                </form>
 
-                            </div>
-
-                        </div>
-                    </div><!-- End of Modal body -->
-                </div><!-- End of Modal content -->
-            </div><!-- End of Modal dialog -->
-        </div><!-- End of Modal -->
+ @include('uclass.lecturer_modals')
 
 
         <div class="col-lg-5">
