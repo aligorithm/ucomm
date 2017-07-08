@@ -49,11 +49,10 @@
 
 <div class="container">
     <div class="row">
-
-        <div class="col-lg-7 tab-content">
-            <div class="main_section">
+        <div class="col-lg-7 tab-content main_section">
                 @forelse($courses as $course)
-                <div class="well tab-pane fade in row @if($course == $courses->first()) active @endif" id="{{$course->id}}_tab">
+                    <div class="tab-pane fade in @if($course == $courses->first()) active @endif" id="{{$course->id}}_tab">
+                <div class="well">
                     <div class="col-lg-10">
                         <h4><b>{{$course->code}} | Department of {{$course->department}} | 3 Units <br>
                                 Title: {{$course->title}} <br>
@@ -81,13 +80,12 @@
                             <button class="btn btn-md btn-primary">More Info</button>
                         </div>
                     </div>
+                </div>
+               </div>
                     @empty
                         <div class="alert alert-warning">No courses yet! Add a course and get started.</div>
                     @endforelse
-
             </div>
-
-        </div>
 
 
  @include('uclass.lecturer_modals')
@@ -109,9 +107,9 @@
                 </div>
 
                     <div class="courses">
-                        <ul style="list-style:none">
+                        <ul>
                         @foreach($courses as $course)
-                            <li @if($course == $courses->first()) class="active" @endif><a data-toggle="tab" href="#{{$course->id}}_tab">
+                            <li style="list-style:none" @if($course == $courses->first()) class="active" @endif><a data-toggle="tab" href="#{{$course->id}}_tab">
                             <div class="row well">
                         <div class="course">
                             <div class="col-lg-9">
