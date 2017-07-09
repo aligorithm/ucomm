@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Activity;
 use Illuminate\Http\Request;
+use App\Course;
 
 class ActivityController extends Controller
 {
@@ -33,13 +34,16 @@ class ActivityController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Course $course)
     {
         $this->validate(request(),[
             'name' => 'required',
             'type' => 'required',
             'description' => 'required'
         ]);
+
+        $activity= $course->addActivity(request('name'),request('type'),request('description'));
+        return view('partials.activity',compact('activity'));
     }
 
     /**

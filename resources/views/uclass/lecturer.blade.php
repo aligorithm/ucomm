@@ -83,7 +83,7 @@
     <div class="row">
         <div class="col-lg-7 tab-content main_section">
                 @forelse($courses as $course)
-                    <div class="tab-pane fade in @if($course == $courses->first()) active @endif" id="{{$course->id}}_tab">
+                    <div class="tab-pane fade in @if($course == $courses->first()) active @endif" id="{{$course->id}}_tab" data-course-id="{{$course->id}}">
                 <div class="well">
                     <div class="col-lg-10">
                         <h4><b>{{$course->code}} | Department of {{$course->department}} | 3 Units <br>
@@ -95,22 +95,28 @@
                         <button class="btn btn-md btn-primary">Exit</button>
                     </div>
                     <br>
-                    <a class="btn btn-primary btn-lg right" data-toggle="modal" href="#add_activity_modal" id="add_activity_link">Add Activity</a>
+                <a class="btn btn-primary btn-lg right add_activity_link" data-toggle="modal" href="#add_activity_modal">Add Activity</a>
 
                 </div>
                 <div class="activities_container col-lg-12">
                     <h3 align="center"><b>Activities</b></h3>
-                    <div class="row well activities_list" data-course-id="{{$course->id}}">
-                        <div class="col-lg-9">
-                            <h4><b>Assignment</b> <br>
-                                <small>Expand the example attached to include support
-                                    ...</small>
-                            </h4>
-                        </div>
-                        <div class="col-lg-3">
-                            <span>on 1st July</span>
-                            <button class="btn btn-md btn-primary">More Info</button>
-                        </div>
+                    <div class="activities_list" data-course-id="{{$course->id}}">
+                   @forelse($course->activities as $activity)
+                            <div class="row well">
+                                <div class="col-lg-9">
+                                    <h4><b>{{$activity->type}}</b> <br>
+                                        <b>{{$activity->title}}</b>
+                                        <small>{{str_limit($activity->description,200)}}</small>
+                                    </h4>
+                                </div>
+                                <div class="col-lg-3 pull-right">
+                                    <span>{{$activity->created_at->diffForHumans()}}</span>
+                                    <button class="btn btn-md btn-primary">More Info</button>
+                                </div>
+                            </div>
+                       @empty
+                        <div class="alert alert-warning">No activity on this course yet. Create one and get started.</div>
+                       @endforelse
                     </div>
                 </div>
                </div>

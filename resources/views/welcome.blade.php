@@ -47,16 +47,11 @@
                     <a href="#" class="btn btn-lg btn-secondary">Learn more</a>
                 </p>
                 <hr>
+                <p class="lead">Are you a lecturer? Try Uclass, a class activity interface integrated with Ucomm. It's very convenient especially if your students are on Ucomm.
+                </p>
                 <p class="lead">
-                    Are you a lecturer? Try Uclass, a class activity interface integrated with Ucomm. It's very convenient especially if your students are on Ucomm.
                     <a href="/uclass/lecturer/login" class="btn btn-lg btn-secondary">Enter Uclass</a>
                 </p>
-            </div>
-
-            <div class="mastfoot">
-                <div class="inner">
-                    <p>Copyright &copy; Ucomm 2017</p>
-                </div>
             </div>
 
         </div>

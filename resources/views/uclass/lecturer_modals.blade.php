@@ -9,7 +9,7 @@
             <div class="modal-body">
                 <div class="container">
                     <div class="row">
-                        <form class="form-horizontal" id="add_activity_form" method="post" action="" >
+                        <form class="form-horizontal" id="add_activity_form" method="post" action="#">
                             {{csrf_field()}}
                             <div class="col-xs-8">
                                 <div class="form-group">
@@ -21,7 +21,7 @@
                                 <div class="form-group">
                                     <label for="type" class="col-lg-4 control-label">Activity Type (E.g. assignment, material, notification)</label>
                                     <div class="col-lg-8">
-                                        <input type="text" class="form-control" name="code" id="code"  required>
+                                        <input type="text" class="form-control" name="type" id="type"  required>
                                     </div>
                                 </div>
                                 <div class="form-group">
