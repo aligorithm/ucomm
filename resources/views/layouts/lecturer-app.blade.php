@@ -13,9 +13,6 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <style>
-        body{
-            background:url("{{env('APP_URL')}}/img/stud.jpeg");
-        }
         .white {color:white!important;}
     </style>
 </head>

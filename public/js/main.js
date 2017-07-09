@@ -34,6 +34,28 @@ $(document).ready(function () {
                 }
             }
         });
+        $("#add_activity_form").submit(function (event) {
+            course_id = $(this).data('course-id');
+            event.preventDefault();
+            add_activity_form = $(this);
+            data = new FormData(this);
+            $.post({
+                processData: false,
+                contentType: false,
+                url: '/uclass/courses/'+course_id + 'activities/create/',
+                data:data,
+                success: function (data) {
+                    if (data) {
+                        $("#add_activity_form input[type='text']").val([]);
+                        $("#add_activity_form textarea").val([]);
+                        $(data).hide().appendTo($(".activities_list data-course-id=["+course_id+"]")).fadeIn(function () {
+                            alert("Activity Added!");
+                            hideModal();
+                        });
+                    }
+                }
+            });
+        });
     });
 
     function hideModal(){

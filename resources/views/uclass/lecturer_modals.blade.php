@@ -9,7 +9,7 @@
             <div class="modal-body">
                 <div class="container">
                     <div class="row">
-                        <form class="form-horizontal" id="add_activity_form" method="post" action="">
+                        <form class="form-horizontal" id="add_activity_form" method="post" action="" >
                             {{csrf_field()}}
                             <div class="col-xs-8">
                                 <div class="form-group">

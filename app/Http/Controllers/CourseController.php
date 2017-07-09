@@ -41,6 +41,7 @@ class CourseController extends Controller
             'description' => 'required',
         ]);
     $course = Course::create([
+        'lecturer_id' => auth()->user()->id,
         'title' => request('title'),
         'code' => request('code'),
         'description' => request('description'),

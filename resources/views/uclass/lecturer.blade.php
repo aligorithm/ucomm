@@ -100,7 +100,7 @@
                 </div>
                 <div class="activities_container col-lg-12">
                     <h3 align="center"><b>Activities</b></h3>
-                    <div class="row well">
+                    <div class="row well activities_list" data-course-id="{{$course->id}}">
                         <div class="col-lg-9">
                             <h4><b>Assignment</b> <br>
                                 <small>Expand the example attached to include support
