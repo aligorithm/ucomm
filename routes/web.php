@@ -52,6 +52,7 @@ Route::prefix('uclass')->group(function (){
 
     Route::get('/lecturer/login', 'Auth\LecturerLoginController@showLoginForm')->name('lecturer.login');
     Route::post('/lecturer/login', 'Auth\LecturerLoginController@login')->name('lecturer.login.submit');
+    Route::post('/lecturer/logout', 'Auth\LecturerLoginController@logout')->name('lecturer.logout');
     Route::get('/lecturer/register', 'Auth\LecturerRegisterController@showRegistrationForm')->name('lecturer.register');
     Route::post('/lecturer/register', 'Auth\LecturerRegisterController@register')->name('lecturer.register.submit');
     Route::get('/lecturer', 'LecturerController@index')->name('lecturer.dashboard');

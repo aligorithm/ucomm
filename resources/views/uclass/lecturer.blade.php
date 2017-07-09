@@ -28,18 +28,50 @@
                     <span class="icon-bar bar2"></span>
                     <span class="icon-bar bar3"></span>
                 </button>
-                <a class="navbar-brand" href="#" style="margin-bottom:14px; height:60px;">
-
-                    U-Class </a>
+                <a class="navbar-brand white" href="#" style="margin-bottom:14px; height:60px;">U-Class </a>
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
-                <ul class="nav navbar-nav navbar-left"style="height:60px;padding:0;margin:0;">
+                <ul class="nav navbar-nav navbar-left" style="height:60px;padding:0;margin:0;">
                     <li>
-                        <a href="index.php" style="height:60px;">Lecturer</a>
+                        <a href="#" style="height:60px;" class="white">Lecturer</a>
                     </li>
-                    <li class="">
-                        <a  style="height:60px;" class="" data-toggle="" href="#"><span class="fa fa-envelope-o"></span> Dr. Naeem Balogun
-                            <span class="fa fa-caret-down"></span></a>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown user user-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <img src="" class="user-image" alt="User Image">
+                            <span class="hidden-xs white">{{auth()->user()->title}} {{auth()->user()->name}}</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <!-- User image -->
+                            <li class="user-header">
+                                <img src="" class="img-circle" alt="User Image">
+
+                                <p style="color:black;">
+                                    {{auth()->user()->title}} {{auth()->user()->name}}
+                                    <small>Lecturer</small>
+                                </p>
+                            </li>
+
+                            <!-- Menu Footer-->
+                            <li class="user-footer">
+                                <div class="pull-left">
+                                    <a href="/profile" class="btn btn-default btn-flat">Profile</a>
+                                </div>
+                                <div class="pull-right">
+                                        <a href="#" class="btn btn-default btn-flat"
+                                           onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
+                                        >
+                                            <i class="fa fa-fw fa-power-off"></i> Logout
+                                        </a>
+                                        <form id="logout-form" action="{{route('lecturer.logout')}}" method="POST" style="display: none;">
+                                            {{ csrf_field() }}
+                                        </form>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                        </ul>
                     </li>
                 </ul>
             </div>

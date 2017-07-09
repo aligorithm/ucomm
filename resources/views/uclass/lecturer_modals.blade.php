@@ -25,12 +25,6 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="department" class="col-lg-4 control-label">Department</label>
-                                    <div class="col-lg-8">
-                                        <input type="text" class="form-control" name="department" id="code"  required>
-                                    </div>
-                                </div>
-                                <div class="form-group">
                                     <label for="description" class="col-lg-4 control-label">Activity Description</label>
                                     <div class="col-lg-8">
                                         <textarea name="description" id="description" class="form-control" rows="5" required></textarea>
@@ -74,6 +68,12 @@
                                     <label for="InputName" class="col-lg-4 control-label">Course Code</label>
                                     <div class="col-lg-8">
                                         <input type="text" class="form-control" name="code" id="code"  required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="department" class="col-lg-4 control-label">Department</label>
+                                    <div class="col-lg-8">
+                                        <input type="text" class="form-control" name="department" id="code"  required>
                                     </div>
                                 </div>
                                 <div class="form-group">

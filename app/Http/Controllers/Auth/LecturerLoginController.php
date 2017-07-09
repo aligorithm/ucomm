@@ -10,7 +10,7 @@ class LecturerLoginController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('guest:lecturer');
+        $this->middleware('guest:lecturer')->except('logout');
     }
 
     public function showLoginForm(){
@@ -28,6 +28,15 @@ class LecturerLoginController extends Controller
         return redirect()->back()->withInput(request()->only('email','remember'));
     }
 
+    public function logout()
+    {
+        Auth::guard('lecturer')->logout();
 
+        session()->flush();
+
+        session()->regenerate();
+
+        return redirect('/');
+    }
 
 }
