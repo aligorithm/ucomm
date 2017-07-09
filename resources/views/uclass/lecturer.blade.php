@@ -18,6 +18,7 @@
     <title>Uclass | Lecturer</title>
 </head>
 <body>
+{{--<img src='{{env('APP_URL')}}/img/loader.svg'>--}}
 <header>
     <nav class="navbar" style="background-color:#33C5BA; border-radius:0;height:60px;">
         <div class="container">
@@ -104,8 +105,8 @@
                    @forelse($course->activities as $activity)
                             <div class="row well">
                                 <div class="col-lg-9">
-                                    <h4><b>{{$activity->type}}</b> <br>
-                                        <b>{{$activity->name}}</b>
+                                    <h4><b>{{$activity->type}}</b> |
+                                        <b>{{$activity->name}}</b><br>
                                         <small>{{str_limit($activity->description,200)}}</small>
                                     </h4>
                                 </div>

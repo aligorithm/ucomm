@@ -31,7 +31,7 @@
                                     </div>
                                 </div>
 
-                                <input type="submit" name="submit" id="submit" value="Submit" class="btn btn-info pull-right">
+                                <button type="submit" name="submit" class="btn btn-info pull-right submit" data-loading-text="<img src='{{env('APP_URL')}}/img/loader.svg'>">Submit</button>
                             </div>
                         </form>
 
@@ -83,7 +83,8 @@
                                     </div>
                                 </div>
 
-                                <input type="submit" name="submit" id="submit" value="Submit" class="btn btn-info pull-right">
+                                <button type="submit" name="submit" class="btn btn-info pull-right submit" data-loading-text="<img src='{{env('APP_URL')}}/img/loader.svg'>">Submit</button>
+
                             </div>
                         </form>
 

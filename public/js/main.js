@@ -1,5 +1,6 @@
 $(document).ready(function () {
     $("#add_course_form").submit(function (event) {
+        $("#add_course_form .submit").button('loading');
         event.preventDefault();
         add_course_form = $(this);
         data = new FormData(this);
@@ -9,6 +10,7 @@ $(document).ready(function () {
             url: '/uclass/courses/create/',
             data:data,
             success: function (data) {
+                $("#add_course_form .submit").button('reset');
                 if (data) {
                     $("#add_course_form input[type='text']").val([]);
                     $("#add_course_form textarea").val([]);
@@ -36,6 +38,7 @@ $(document).ready(function () {
         });
     });
         $("#add_activity_form").submit(function (event) {
+            $("#add_activity_form .submit").button('loading');
             course_id = $(".tab-pane.active").data('course-id');
             event.preventDefault();
             add_activity_form = $(this);
@@ -46,6 +49,7 @@ $(document).ready(function () {
                 url: '/uclass/courses/'+course_id + '/activities/',
                 data:data,
                 success: function (data) {
+                    $("#add_activity_form .submit").button('reset');
                     if (data) {
                         $("#add_activity_form input[type='text']").val([]);
                         $("#add_activity_form textarea").val([]);
@@ -57,7 +61,6 @@ $(document).ready(function () {
                 }
             });
         });
-
 
     function hideModal(){
         $(".modal").removeClass("in");

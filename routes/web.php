@@ -48,7 +48,7 @@ Route::prefix('uclass')->group(function (){
     Route::get('/student', 'StudentController@index');
     Route::get('/courses', 'CourseController@index');
     Route::get('/courses/{course}', 'CourseController@show');
-    Route::post('/courses/create', 'CourseController@store');
+    Route::post('/courses/create', 'CourseController@store')->middleware('auth:lecturer');
     Route::post('/courses/{course}/activities', 'ActivityController@store');
 
     Route::get('/lecturer/login', 'Auth\LecturerLoginController@showLoginForm')->name('lecturer.login');
