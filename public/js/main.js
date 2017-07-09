@@ -49,7 +49,7 @@ $(document).ready(function () {
                     if (data) {
                         $("#add_activity_form input[type='text']").val([]);
                         $("#add_activity_form textarea").val([]);
-                        $(data).hide().prependTo($(".activities_list data-course-id=["+course_id+"]")).fadeIn(function () {
+                        $(data).hide().prependTo($(".activities_list[data-course-id='"+course_id+"']")).fadeIn(function () {
                             alert("Activity Added!");
                             hideModal();
                         });

@@ -1,7 +1,7 @@
 <div class="row well">
     <div class="col-lg-9">
         <h4><b>{{$activity->type}}</b> <br>
-            <b>{{$activity->title}}</b>
+            <b>{{$activity->name}}</b>
             <small>{{str_limit($activity->description,200)}}</small>
         </h4>
     </div>
