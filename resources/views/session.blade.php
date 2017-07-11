@@ -18,6 +18,13 @@
 </style>
 <body>
 <div class="container-fluid">
+    <div class="collapse navbar-collapse" id="app-navbar-collapse" style="background:#33C5BA;">
+        <!-- Left Side Of Navbar -->
+        <ul class="nav navbar-nav">
+            <li><a href="/">Home</a></li>
+            <li><a href="{{route('student.dashboard')}}" class="white">Uclass</a></li>
+        </ul>
+    </div>
     <div class="row">
         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" id="login">
             <div class="container">
