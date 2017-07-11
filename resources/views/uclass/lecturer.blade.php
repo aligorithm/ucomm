@@ -18,7 +18,6 @@
     <title>Uclass | Lecturer</title>
 </head>
 <body>
-{{--<img src='{{env('APP_URL')}}/img/loader.svg'>--}}
 <header>
     <nav class="navbar" style="background-color:#33C5BA; border-radius:0;height:60px;">
         <div class="container">
@@ -93,7 +92,7 @@
                             <b>Number of Students:57</b></h4>
                     </div>
                     <div class="col-lg-2">
-                        <button class="btn btn-md btn-primary">Exit</button>
+                        <button class="btn btn-md btn-primary">Edit</button>
                     </div>
                     <br>
                 <a class="btn btn-primary btn-lg right add_activity_link" data-toggle="modal" href="#add_activity_modal">Add Activity</a>
@@ -165,6 +164,7 @@
                 </div>
             </div>
         </div>
+
     </div>
 </div>
 
@@ -173,7 +173,7 @@
         <div class="row">
             <div class="col-lg-3">
                 <ul>
-                    <li><a href=""><b>Term of Use</b></a></li><b style="color:white;">|</b>
+                    <li><a href=""><b>Term of Use</b></a> <b style="color:white;">|</b></li>
                     <li><a href=""><b>Privacy</b></a></li>
                 </ul>
             </div>

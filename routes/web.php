@@ -45,7 +45,7 @@ Route::post('posts/comments/replies/{reply}/delete', 'ReplyController@destroy');
 Route::get('/{slug}', 'UserController@show');
 
 Route::prefix('uclass')->group(function (){
-    Route::get('/student', 'StudentController@index');
+    Route::get('/student', 'StudentController@index')->name('student.dashboard')->middleware('auth');
     Route::get('/courses', 'CourseController@index');
     Route::get('/courses/{course}', 'CourseController@show');
     Route::post('/courses/create', 'CourseController@store')->middleware('auth:lecturer');

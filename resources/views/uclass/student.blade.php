@@ -18,16 +18,48 @@
                     <span class="icon-bar bar2"></span>
                     <span class="icon-bar bar3"></span>
                 </button>
-                <a class="navbar-brand" href="#" style="margin-bottom:14px; height:60px;">U-Class </a>
+                <a class="navbar-brand white" href="#" style="margin-bottom:14px; height:60px;">U-Class </a>
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
-                <ul class="nav navbar-nav navbar-left"style="height:60px;padding:0;margin:0;">
+                <ul class="nav navbar-nav navbar-left" style="height:60px;padding:0;margin:0;">
                     <li>
-                        <a href="index.php" style="height:60px;"><span class="fa fa-envelope-o"></span> News Feed</a>
+                        <a href="/home" style="height:60px;" class="white"><span class="fa fa-envelope-o"></span> News Feed</a>
                     </li>
-                    <li class="">
-                        <a  style="height:60px;" class="" data-toggle="" href="#">Fola Oluwatobi
-                            <span class="fa fa-caret-down"></span></a>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown user user-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <img src="" class="user-image" alt="User Image">
+                            <span class="hidden-xs white">{{auth()->user()->name}}</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <!-- User image -->
+                            <li class="user-header">
+                                <img src="" class="img-circle" alt="User Image">
+
+                                <p style="color:black;">
+                                     {{auth()->user()->name}}
+                                    <small>Student</small>
+                                </p>
+                            </li>
+
+                            <!-- Menu Footer-->
+                            <li class="user-footer">
+                                <div class="pull-left">
+                                    <a href="/profile" class="btn btn-default btn-flat">Profile</a>
+                                </div>
+                                <div class="pull-right">
+                                    <a href="#" class="btn btn-default btn-flat"
+                                       onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
+                                    >
+                                        <i class="fa fa-fw fa-power-off"></i> Logout
+                                    </a>
+                                    <form id="logout-form" action="{{route('logout')}}" method="POST" style="display: none;">
+                                        {{ csrf_field() }}
+                                    </form>
+                                </div>
+                            </li>
+                        </ul>
                     </li>
                 </ul>
             </div>
@@ -37,186 +69,83 @@
 
 <div class="container">
     <div class="row">
+            <div class="col-lg-7 tab-content main_section">
+                @forelse($courses as $course)
+                    <div class="tab-pane fade in @if($course == $courses->first()) active @endif" id="{{$course->id}}_tab" data-course-id="{{$course->id}}">
+                        <div class="well">
+                            <div class="row">
+                            <div class="col-lg-10">
+                                <h4><b>{{$course->code}} | Department of {{$course->department}} | 3 Units <br>
+                                        Title: {{$course->title}} <br>
+                                        Next Lecture:</b> Next Thursday at 9:00am <br>
+                                    </h4>
+                            </div>
 
-        <div class="col-lg-7">
-            <div class="row" id="main_section">
-                <div class="col-lg-10">
-                    <div class="well">
-                        <h4><b>ICS 355 | Department of ICS | 3 Units <br>
-                                Title: Machine Learning Systems <br>
-                                Next Lecture:</b> Next Thursday at 9:00am</h4>
-                    </div>
-                </div>
-                <div class="col-lg-12" id="activities_container">
-                    <center><h3><b>Activities</b></h3></center>
-                    <div class="row well">
-                        <div class="col-lg-9">
-                            <h4><b>Assignment</b> <br>
-                                <small>Expand the example attached to include support
-                                    ...</small>
-                            </h4>
+                            <br>
+                            </div>
                         </div>
-                        <div class="col-lg-3">
-                            <span>on 1st July</span>
-                            <button class="btn btn-md btn-primary">More Info</button>
-                        </div>
-                    </div>
-
-                    <div class="row well">
-                        <div class="col-lg-9">
-                            <h4><b>Assignment</b> <br>
-                                <small>Expand the example attached to include support
-                                    ...</small>
-                            </h4>
-                        </div>
-                        <div class="col-lg-3">
-                            <span>on 1st July</span>
-                            <button class="btn btn-md btn-primary">More Info</button>
+                        <div class="activities_container col-lg-12">
+                            <h3 align="center"><b>Activities</b></h3>
+                            <div class="activities_list" data-course-id="{{$course->id}}">
+                                @forelse($course->activities as $activity)
+                                    <div class="row well">
+                                        <div class="col-lg-9">
+                                            <h4><b>{{$activity->type}}</b> |
+                                                <b>{{$activity->name}}</b><br>
+                                                <small>{{str_limit($activity->description,200)}}</small>
+                                            </h4>
+                                        </div>
+                                        <div class="col-lg-3 pull-right">
+                                            <span>{{$activity->created_at->diffForHumans()}}</span>
+                                            <button class="btn btn-md btn-primary">More Info</button>
+                                        </div>
+                                    </div>
+                                @empty
+                                    <div class="alert alert-warning">No activity on this course yet.</div>
+                                @endforelse
+                            </div>
                         </div>
                     </div>
-                    <div class="row well">
-                        <div class="col-lg-9">
-                            <h4><b>Assignment</b> <br>
-                                <small>Expand the example attached to include support
-                                    ...</small>
-                            </h4>
-                        </div>
-                        <div class="col-lg-3">
-                            <span>on 1st July</span>
-                            <button class="btn btn-md btn-primary">More Info</button>
-                        </div>
-                    </div>
-                    <div class="row well">
-                        <div class="col-lg-9">
-                            <h4><b>Assignment</b> <br>
-                                <small>Expand the example attached to include support
-                                    ...</small>
-                            </h4>
-                        </div>
-                        <div class="col-lg-3">
-                            <span>on 1st July</span>
-                            <button class="btn btn-md btn-primary">More Info</button>
-                        </div>
-                    </div>
-                    <div class="row well">
-                        <div class="col-lg-9">
-                            <h4><b>Assignment</b> <br>
-                                <small>Expand the example attached to include support
-                                    ...</small>
-                            </h4>
-                        </div>
-                        <div class="col-lg-3">
-                            <span>on 1st July</span>
-                            <button class="btn btn-md btn-primary">More Info</button>
-                        </div>
-                    </div>
-                </div>
-
+                @empty
+                    <div class="alert alert-warning">No courses yet.</div>
+                @endforelse
             </div>
-        </div>
 
 
 
 
-        <div class="col-lg-5">
-            <div id="courses_offered">
+            <div class="col-lg-5">
+        <div id="courses_offered">
+            <div class="row">
                 <div class="side_header">
-                    <center><h3><b>Courses Offered</b></h3></center>
-                </div>
-                <div class="row well">
-                    <div class="courses">
-                        <div class="col-lg-9">
-                            <h4><strong>Ics 306</strong> <br>
-                                <small>Human Computer Interaction</small>
-                            </h4>
-                        </div>
-                        <div class="col-lg-3">
-                            <br>
-                            <button class="btn btn-md btn-primary">Enter</button>
-                        </div>
+                    <div class="col-lg-9">
+                        <h3 style="text-align:center"><b>Courses</b></h3>
                     </div>
+
                 </div>
-                <div class="row well">
-                    <div class="courses">
-                        <div class="col-lg-9">
-                            <h4><strong>Ics 306</strong> <br>
-                                <small>Human Computer Interaction</small>
-                            </h4>
-                        </div>
-                        <div class="col-lg-3">
-                            <br>
-                            <button class="btn btn-md btn-primary">Enter</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="row well">
-                    <div class="courses">
-                        <div class="col-lg-9">
-                            <h4><strong>Ics 306</strong> <br>
-                                <small>Human Computer Interaction</small>
-                            </h4>
-                        </div>
-                        <div class="col-lg-3">
-                            <br>
-                            <button class="btn btn-md btn-primary">Enter</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="row well">
-                    <div class="courses">
-                        <div class="col-lg-9">
-                            <h4><strong>Ics 306</strong> <br>
-                                <small>Human Computer Interaction</small>
-                            </h4>
-                        </div>
-                        <div class="col-lg-3">
-                            <br>
-                            <button class="btn btn-md btn-primary">Enter</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="row well">
-                    <div class="courses">
-                        <div class="col-lg-9">
-                            <h4><strong>Ics 306</strong> <br>
-                                <small>Human Computer Interaction</small>
-                            </h4>
-                        </div>
-                        <div class="col-lg-3">
-                            <br>
-                            <button class="btn btn-md btn-primary">Enter</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="row well">
-                    <div class="courses">
-                        <div class="col-lg-9">
-                            <h4><strong>Ics 306</strong> <br>
-                                <small>Human Computer Interaction</small>
-                            </h4>
-                        </div>
-                        <div class="col-lg-3">
-                            <br>
-                            <button class="btn btn-md btn-primary">Enter</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="row well">
-                    <div class="courses">
-                        <div class="col-lg-9">
-                            <h4><strong>Ics 306</strong> <br>
-                                <small>Human Computer Interaction</small>
-                            </h4>
-                        </div>
-                        <div class="col-lg-3">
-                            <br>
-                            <button class="btn btn-md btn-primary">Enter</button>
-                        </div>
-                    </div>
-                </div>
+            </div>
+
+            <div class="courses">
+                <ul class="courses_list">
+                    @foreach($courses as $course)
+                        <li style="list-style:none" @if($course == $courses->first()) class="active" @endif><a data-toggle="tab" href="#{{$course->id}}_tab">
+                                <div class="row well">
+                                    <div class="course">
+                                        <div class="col-lg-9">
+                                            <h4><strong>{{$course->code}}</strong> <br>
+                                                <small>{{$course->title}}</small>
+                                            </h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a></li>
+                    @endforeach
+                </ul>
+
             </div>
         </div>
     </div>
+
 </div>
 
 <footer class="footer" id="footer">
@@ -224,16 +153,17 @@
         <div class="row">
             <div class="col-lg-3">
                 <ul>
-                    <li><a href=""><b>Term of Use</b></a></li><b style="color:white;">|</b>
-                    <li><a href=""><b>Privacy</a></b></li>
+                    <li><a href=""><b>Term of Use</b></a> <b style="color:white;">|</b></li>
+                    <li><a href=""><b>Privacy</b></a></li>
                 </ul>
             </div>
             <div class="col-lg-3">
-                <p><b>Copyright &copy; Umbrella, 2017</b></p>
+                <p><b>Copyright &copy; Ucomm, 2017</b></p>
             </div>
         </div>
     </div>
     <script src="{{env('APP_URL')}}/js/jquery.min.js"></script>
+    <script src="{{env('APP_URL')}}/js/bootstrap.min.js"></script>
 </footer>
 </body>
 </html>
