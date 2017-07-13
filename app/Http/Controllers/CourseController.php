@@ -39,14 +39,17 @@ class CourseController extends Controller
             'title' => 'required',
             'code' => 'required',
             'description' => 'required',
+            'department' => 'required',
+            'units' => 'required',
         ]);
     $course = Course::create([
-        'lecturer_id' => auth()->user()->id,
+        'lecturer_id' => auth('lecturer')->user()->id,
         'title' => request('title'),
         'code' => request('code'),
         'description' => request('description'),
+        'department' => request('department'),
+        'units' => request('units'),
     ]);
-
     return view('partials.course',compact('course'));
     }
 
@@ -95,6 +98,7 @@ class CourseController extends Controller
         //
     }
     public function search($query){
-
+        $courses = Course::where('title','LIKE','%{$query}%')->get;
+        return view('partials.course-results',compact('courses'));
     }
 }

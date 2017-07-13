@@ -39,11 +39,11 @@
                 <p class="lead">Connecting Students across the university...
                 </p>
                 <p class="lead">
-                    <a href="/register" class="btn btn-lg btn-secondary">Sign Up</a>
+                    <a href="/session#signup" class="btn btn-lg btn-secondary">Sign Up</a>
                     <a href="/login" class="btn btn-lg btn-secondary">Login</a>
                 </p>
                 <hr>
-                <p class="lead">Are you a lecturer? Try Uclass, a class activity interface integrated with Ucomm. It's very convenient especially if your students are on Ucomm.
+                <p class="lead">Are you a lecturer? Try Uclass, a class activity interface integrated with Ucomm.
                 </p>
                 <p class="lead">
                     <a href="/uclass/lecturer/login" class="btn btn-lg btn-secondary">Enter Uclass</a>

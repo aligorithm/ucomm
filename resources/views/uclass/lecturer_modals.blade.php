@@ -73,7 +73,13 @@
                                 <div class="form-group">
                                     <label for="department" class="col-lg-4 control-label">Department</label>
                                     <div class="col-lg-8">
-                                        <input type="text" class="form-control" name="department" id="code"  required>
+                                        <input type="text" class="form-control" name="department" id="department"  required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="units" class="col-lg-4 control-label">Units</label>
+                                    <div class="col-lg-8">
+                                        <input type="number" class="form-control" name="units" id="units"  required>
                                     </div>
                                 </div>
                                 <div class="form-group">

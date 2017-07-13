@@ -23,7 +23,10 @@
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav navbar-left" style="height:60px;padding:0;margin:0;">
                     <li>
-                        <a href="/home" style="height:60px;" class="white"><span class="fa fa-envelope-o"></span> News Feed</a>
+                        <a href="/home" style="height:60px;" class="white"><span class="fa fa-caret-left"></span> News Feed</a>
+                    </li>
+                    <li>
+                        <a class="btn btn-sm btn-primary add_course"  data-toggle="modal" href="#add_course_modal">Add Course</a>
                     </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
@@ -87,7 +90,7 @@
                         <div class="activities_container col-lg-12">
                             <h3 align="center"><b>Activities</b></h3>
                             <div class="activities_list" data-course-id="{{$course->id}}">
-                                @forelse($course->activities as $activity)
+                                @forelse($course->activities->take(15) as $activity)
                                     <div class="row well">
                                         <div class="col-lg-9">
                                             <h4><b>{{$activity->type}}</b> |
@@ -147,7 +150,7 @@
     </div>
 
 </div>
-
+@include('uclass.student-modals')
 <footer class="footer" id="footer">
     <div class="container">
         <div class="row">

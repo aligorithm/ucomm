@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Course extends Model
 {
     protected $fillable = [
-        'user_id','title','code','time','department'
+        'lecturer_id','title','code','time','department','units'
     ];
     public function lecturer(){
         return $this->belongsTo(Lecturer::class);

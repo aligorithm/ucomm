@@ -143,6 +143,9 @@ nav ul li a{
 		background-color: #f9f9f9;
 	}
 }
+.nav > li > a:hover {
+	background: rgba(1,1,1,.1);
+}
 .navbar-nav > .user-menu .user-image {
 	float: left;
 	width: 25px;

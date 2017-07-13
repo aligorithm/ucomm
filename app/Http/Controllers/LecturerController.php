@@ -25,7 +25,7 @@ class LecturerController extends Controller
      */
     public function index()
     {
-        $courses = Course::all();
+        $courses = Course::where('lecturer_id',auth('lecturer')->user()->id)->get();
         return view('uclass.lecturer',compact('courses'));
     }
 }

@@ -12,7 +12,7 @@ $(document).ready(function () {
             success: function (data) {
                 $("#add_course_form .submit").button('reset');
                 if (data) {
-                    $("#add_course_form input[type='text']").val([]);
+                    $("#add_course_form input[type!='hidden']").val([]);
                     $("#add_course_form textarea").val([]);
                     $(data).hide().appendTo($(".courses_list")).fadeIn(function () {
                         course_id = $(this).attr('data-course-id');
@@ -25,6 +25,7 @@ $(document).ready(function () {
                                     $('.tab-pane.active').removeClass('active');
                                     $('.tab-pane.active').hide();
                                     $(data).hide().appendTo($(".main_section")).fadeIn();
+                                    $(".course-empty").remove();
                                     alert("Course Added!");
                                     hideModal();
                                 }
@@ -51,6 +52,7 @@ $(document).ready(function () {
                     if (data) {
                         $("#add_activity_form input[type='text']").val([]);
                         $("#add_activity_form textarea").val([]);
+                        $(".activity-empty").remove();
                         $(data).hide().prependTo($(".activities_list[data-course-id='"+course_id+"']")).fadeIn(function () {
                             alert("Activity Added!");
                             hideModal();

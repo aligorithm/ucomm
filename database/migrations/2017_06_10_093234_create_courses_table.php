@@ -25,9 +25,9 @@ class CreateCoursesTable extends Migration
         });
 
         Schema::create('course_user', function(Blueprint $table){
-            $table->integer('student_id');
+            $table->integer('user_id');
             $table->integer('course_id');
-            $table->primary(['student_id','course_id']);
+            $table->primary(['user_id','course_id']);
         });
     }
 

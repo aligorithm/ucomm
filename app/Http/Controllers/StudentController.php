@@ -13,7 +13,7 @@ class StudentController extends Controller
     }
 
     public function index(){
-        $courses = Course::all();
+        $courses = auth()->user()->courses()->get();
         return view('uclass.student',compact('courses'));
     }
 }

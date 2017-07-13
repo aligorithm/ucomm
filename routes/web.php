@@ -48,6 +48,7 @@ Route::prefix('uclass')->group(function (){
     Route::get('/student', 'StudentController@index')->name('student.dashboard')->middleware('auth');
     Route::get('/courses', 'CourseController@index');
     Route::get('/courses/{course}', 'CourseController@show');
+    Route::get('/courses/search/{query}', 'CourseController@search');
     Route::post('/courses/create', 'CourseController@store')->middleware('auth:lecturer');
     Route::post('/courses/{course}/activities', 'ActivityController@store');
 

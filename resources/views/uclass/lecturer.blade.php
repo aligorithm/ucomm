@@ -101,7 +101,7 @@
                 <div class="activities_container col-lg-12">
                     <h3 align="center"><b>Activities</b></h3>
                     <div class="activities_list" data-course-id="{{$course->id}}">
-                   @forelse($course->activities as $activity)
+                   @forelse($course->activities->take(15) as $activity)
                             <div class="row well">
                                 <div class="col-lg-9">
                                     <h4><b>{{$activity->type}}</b> |
@@ -115,13 +115,13 @@
                                 </div>
                             </div>
                        @empty
-                        <div class="alert alert-warning">No activity on this course yet. Create one and get started.</div>
+                        <div class="alert alert-warning activity-empty">No activity on this course yet. Create one and get started.</div>
                        @endforelse
                     </div>
                 </div>
                </div>
                     @empty
-                        <div class="alert alert-warning">No courses yet! Add a course and get started.</div>
+                        <div class="alert alert-warning course-empty">No courses yet! Add a course and get started.</div>
                     @endforelse
             </div>
 
