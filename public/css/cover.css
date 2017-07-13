@@ -13,10 +13,10 @@ a:hover {
 .btn-secondary,
 .btn-secondary:hover,
 .btn-secondary:focus {
-  color: #333;
+  color: #fff;
   text-shadow: none; /* Prevent inheritance from `body` */
-  background-color: #fff;
-  border: .05rem solid #fff;
+  background-color: #33C5BA;
+  border: .05rem solid #333;
 }
 
 
@@ -49,11 +49,7 @@ body {
   vertical-align: top;
 }
 .cover-container {
-  margin-right: auto;
-  margin-left: auto;
-}
-.inner.cover{
-  background:rgba(51,197,186,.5);
+  background:rgba(20,20,20,.5);
 }
 
 /* Padding for spacing */

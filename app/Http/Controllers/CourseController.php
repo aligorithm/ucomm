@@ -94,4 +94,7 @@ class CourseController extends Controller
     {
         //
     }
+    public function search($query){
+
+    }
 }

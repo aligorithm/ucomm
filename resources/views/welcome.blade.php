@@ -22,29 +22,25 @@
 <div class="site-wrapper">
 
     <div class="site-wrapper-inner">
-
-        <div class="cover-container">
+<div class="row">
+    <div class="col-1"></div>
+        <div class="cover-container col-10">
 
             <div class="masthead clearfix">
                 <div class="inner">
-                    <h3 class="masthead-brand">Ucomm</h3><br>
-                    <span class="masterhead-brand">Connecting Students across the university...</span>
-                    <nav class="nav nav-masthead">
-                        <a class="nav-link active" href="#">Home</a>
-                        <a class="nav-link" href="/session/#login">Sign in</a>
-                        <a class="nav-link" href="/session/#signup">Sign up</a>
-                    </nav>
+                    <h3 class="masthead-brand"></h3><br>
+                    <span class="masterhead-brand"></span>
                 </div>
             </div>
             <hr>
 
             <div class="inner cover">
                 <h1 class="cover-heading">Ucomm</h1>
-                <p class="lead">This social media is a platform which creates opportunity for people to interact in the virtual community.
-                    Exchanging texts, pictures, audio, video, audio-visual material as well as documents are part of the features of most social networking application. The advent of the new media of communication which bore out social media has consumed the place of the distance as people separated by time and distance, even at the far ends of the earth can communicate making the world not just a global village but a global room.
+                <p class="lead">Connecting Students across the university...
                 </p>
                 <p class="lead">
-                    <a href="#" class="btn btn-lg btn-secondary">Learn more</a>
+                    <a href="/register" class="btn btn-lg btn-secondary">Sign Up</a>
+                    <a href="/login" class="btn btn-lg btn-secondary">Login</a>
                 </p>
                 <hr>
                 <p class="lead">Are you a lecturer? Try Uclass, a class activity interface integrated with Ucomm. It's very convenient especially if your students are on Ucomm.
@@ -55,7 +51,8 @@
             </div>
 
         </div>
-
+    <div class="col-1"></div>
+</div>
     </div>
 
 </div>

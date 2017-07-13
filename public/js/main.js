@@ -16,17 +16,15 @@ $(document).ready(function () {
                     $("#add_course_form textarea").val([]);
                     $(data).hide().appendTo($(".courses_list")).fadeIn(function () {
                         course_id = $(this).attr('data-course-id');
-                        course_code = $(this).attr('data-course-code');
                         $.get({
                             processData: false,
                             contentType: false,
                             url: '/uclass/courses/'+course_id,
                             success: function (data) {
                                 if(data) {
+                                    $('.tab-pane.active').removeClass('active');
                                     $('.tab-pane.active').hide();
-                                    $('.courses_list .active').removeClass('active');
                                     $(data).hide().appendTo($(".main_section")).fadeIn();
-                                    $('.nav-tabs a[href="#' + course_code + '_tab' +  '"]').tab('show');
                                     alert("Course Added!");
                                     hideModal();
                                 }

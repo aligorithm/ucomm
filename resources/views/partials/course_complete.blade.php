@@ -1,4 +1,4 @@
-<div class="tab-pane fade in" id="{{$course->id}}_tab">
+<div class="tab-pane fade in" id="{{$course->id}}_tab" data-course-id="{{$course->id}}">
     <div class="well">
         <div class="col-lg-10">
             <h4><b>{{$course->code}} | Department of {{$course->department}} | 3 Units <br>
