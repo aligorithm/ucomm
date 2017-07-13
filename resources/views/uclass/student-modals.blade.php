@@ -10,28 +10,23 @@
             <div class="modal-body">
                 <div class="container">
                     <div class="row">
-                        <form class="form-horizontal" name="search_course_form" id="add_course_form" method="get" action="">
+                        <form class="" id="search_course_form" method="get" action="">
                             {{csrf_field()}}
-                            <div class="col-xs-8">
+                            <div class="col-xs-6">
                                 <div class="form-group">
-                                    <label for="title" class="col-lg-4 control-label">Course Title</label>
-                                    <div class="col-lg-8">
-                                        <input type="text" class="form-control" name="title" id="title"  required>
-                                    </div>
+                                    <input type="text" class="form-control .query" name="title" id="title" placeholder="Title"  required>
                                 </div>
-
-                                <button type="submit" name="submit" class="btn btn-info pull-right submit" data-loading-text="<img src='{{env('APP_URL')}}/img/loader.svg'>">Search</button>
-
+                            </div>
+                            <div class="col-xs-2">
+                                <button type="submit" name="submit" class="btn btn-info form-control submit" data-loading-text="<img src='{{env('APP_URL')}}/img/loader.svg'>"><span class="fa fa-search"></span></button>
                             </div>
                         </form>
-                        <div class="container" id="search-results">
-
-                        </div>
-
                     </div>
-
+                    <div class="row" id="search-results">
+                    </div>
                 </div>
             </div><!-- End of Modal body -->
+
         </div><!-- End of Modal content -->
     </div><!-- End of Modal dialog -->
 </div><!-- End of Modal -->

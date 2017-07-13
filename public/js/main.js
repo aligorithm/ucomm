@@ -62,6 +62,23 @@ $(document).ready(function () {
             });
         });
 
+        $("#search_course_form").on('submit',function(event){
+            event.preventDefault();
+            $("#search_course_form .submit").button('loading');
+            $.get({
+                processData : false,
+                contentType: false,
+                url: '/uclass/courses/search/'+ $("#search_course_form input[type='text']").val(),
+                success : function (data) {
+                    if(data){
+                        $(data).hide();
+                        $("#search-results").html(data).fadeIn();
+                        $("#search_course_form .submit").button('reset');
+                    }
+                }
+            })
+    });
+
     function hideModal(){
         $(".modal").removeClass("in");
         $(".modal-backdrop").remove();

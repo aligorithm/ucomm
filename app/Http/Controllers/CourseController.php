@@ -98,7 +98,7 @@ class CourseController extends Controller
         //
     }
     public function search($query){
-        $courses = Course::where('title','LIKE','%{$query}%')->get;
+        $courses = Course::where('title','LIKE','%'.$query.'%')->get();
         return view('partials.course-results',compact('courses'));
     }
 }

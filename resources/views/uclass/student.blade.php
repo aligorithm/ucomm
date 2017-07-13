@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="{{env('APP_URL')}}/css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="{{env('APP_URL')}}/fonts/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="{{env('APP_URL')}}/fonts/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="{{env('APP_URL')}}/css/main.css">
 </head>
 <body>
@@ -167,6 +167,7 @@
     </div>
     <script src="{{env('APP_URL')}}/js/jquery.min.js"></script>
     <script src="{{env('APP_URL')}}/js/bootstrap.min.js"></script>
+    <script src="{{env('APP_URL')}}/js/main.js"></script>
 </footer>
 </body>
 </html>
