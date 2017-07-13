@@ -156,7 +156,7 @@
         <div class="row">
             <div class="col-lg-3">
                 <ul>
-                    <li><a href=""><b>Term of Use</b></a> <b style="color:white;">|</b></li>
+                    <li><a href=""><b>Terms of Use</b></a> <b style="color:white;">|</b></li>
                     <li><a href=""><b>Privacy</b></a></li>
                 </ul>
             </div>
@@ -165,6 +165,9 @@
             </div>
         </div>
     </div>
+    <form action="" style="display: none;" id="csrf">
+        {{csrf_field()}}
+    </form>
     <script src="{{env('APP_URL')}}/js/jquery.min.js"></script>
     <script src="{{env('APP_URL')}}/js/bootstrap.min.js"></script>
     <script src="{{env('APP_URL')}}/js/main.js"></script>

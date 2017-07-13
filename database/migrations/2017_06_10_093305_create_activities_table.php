@@ -19,6 +19,7 @@ class CreateActivitiesTable extends Migration
             $table->string('type');
             $table->integer('course_id');
             $table->text('description');
+            $table->boolean('published');
 
             $table->timestamps();
         });

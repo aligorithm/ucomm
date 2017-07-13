@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Course;
+use App\User;
 use Illuminate\Http\Request;
 
 class CourseController extends Controller
@@ -98,7 +99,15 @@ class CourseController extends Controller
         //
     }
     public function search($query){
-        $courses = Course::where('title','LIKE','%'.$query.'%')->get();
+        $courses = Course::wherePivot(auth()->user()->id,false)->where('title','LIKE','%'.$query.'%')->get();
         return view('partials.course-results',compact('courses'));
+    }
+    public function join(Course $course){
+        $student = User::find(auth()->user()->id);
+        $student->courses()->attach($course);
+        return response()->json([
+            'status' => 201,
+            'data' => $student,
+        ]);
     }
 }

@@ -28,14 +28,14 @@
 
             <div class="masthead clearfix">
                 <div class="inner">
-                    <h3 class="masthead-brand"></h3><br>
+                    <h3 class="masthead-brand">Ucomm</h3><br>
                     <span class="masterhead-brand"></span>
                 </div>
             </div>
             <hr>
 
             <div class="inner cover">
-                <h1 class="cover-heading">Ucomm</h1>
+                <img src="/img/logo.jpg" alt="logo" class="img img-responsive" width="200px" height="200px">
                 <p class="lead">Connecting Students across the university...
                 </p>
                 <p class="lead">

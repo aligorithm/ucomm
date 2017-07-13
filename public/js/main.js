@@ -79,6 +79,21 @@ $(document).ready(function () {
             })
     });
 
+    $(document).on('click','.join-course-button',function () {
+        var button = $(this).button('loading');
+        var course_id = $(this).data('course-id');
+        $.get({
+            processData : false,
+            contentType: false,
+            url: '/uclass/courses/'+course_id+'/join',
+            success: function (data) {
+                if(data.status === 201) {
+                    button.html("Joined.").addClass('btn-disabled');
+                }
+            }
+        });
+    });
+
     function hideModal(){
         $(".modal").removeClass("in");
         $(".modal-backdrop").remove();
