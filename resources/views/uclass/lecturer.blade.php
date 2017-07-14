@@ -89,11 +89,12 @@
                         <h4><b>{{$course->code}} | Department of {{$course->department}} | 3 Units <br>
                                 Title: {{$course->title}} <br>
                                 Next Lecture:</b> Next Thursday at 9:00am <br>
-                            <b>Number of Students:57</b></h4>
+                            <b>Number of Students: {{count($course->students)}}</b></h4>
                     </div>
                     <div class="col-lg-2">
                         <button class="btn btn-md btn-primary">Edit</button>
                     </div>
+                    <div class="row">{{$course->description}}</div>
                     <br>
                 <a class="btn btn-primary btn-lg right add_activity_link" data-toggle="modal" href="#add_activity_modal">Add Activity</a>
 

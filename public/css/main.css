@@ -144,10 +144,15 @@ nav ul li a{
 }
 @media (max-width: 991px) {
 	.navbar-nav > .user-menu > .dropdown-menu > .user-footer .btn-default:hover {
-		background-color: #f9f9f9;
+		background-color: rgba(1,1,1,.1);
 	}
 }
-.nav > li > a:hover {
+.nav li > a:hover {
+	background: rgba(1,1,1,.1);
+}.nav li > a:focus {
+	background: rgba(1,1,1,.1);
+}
+.nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
 	background: rgba(1,1,1,.1);
 }
 .navbar-nav > .user-menu .user-image {

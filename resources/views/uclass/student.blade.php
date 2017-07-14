@@ -6,6 +6,7 @@
     <link rel="stylesheet" type="text/css" href="{{env('APP_URL')}}/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="{{env('APP_URL')}}/fonts/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="{{env('APP_URL')}}/css/main.css">
+    <title>Uclass -  Student</title>
 </head>
 <body>
 <header>

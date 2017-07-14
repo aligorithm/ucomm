@@ -18,6 +18,7 @@ class CreateCoursesTable extends Migration
             $table->integer('lecturer_id');
             $table->string('title');
             $table->string('code');
+            $table->text('description');
             $table->dateTime('time');
             $table->string('department');
             $table->integer('units');

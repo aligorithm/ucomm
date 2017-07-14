@@ -1,5 +1,5 @@
 @forelse($courses as $course)
-            <div class="course-result col-xs-10">
+            <div class="course-result col-xs-8">
                 <h4><strong>{{$course->code}}</strong> <br>
                     <small>{{$course->title}}</small>
                 </h4>
