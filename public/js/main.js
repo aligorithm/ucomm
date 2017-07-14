@@ -14,8 +14,9 @@ $(document).ready(function () {
                 if (data) {
                     $("#add_course_form input[type!='hidden']").val([]);
                     $("#add_course_form textarea").val([]);
-                    $(data).hide().appendTo($(".courses_list")).fadeIn(function () {
-                        $(data).addClass('active');
+                    $(".tab-pane.active").removeClass('active');
+                    $("li.active").removeClass('active');
+                    $(data).hide().appendTo($(".courses_list")).addClass('active').fadeIn(function () {
                         course_id = $(this).attr('data-course-id');
                         $.get({
                             processData: false,
@@ -23,8 +24,6 @@ $(document).ready(function () {
                             url: '/uclass/courses/'+course_id,
                             success: function (data) {
                                 if(data) {
-                                    $(".tab-pane.active").removeClass('active');
-                                    $("li.active").removeClass('active');
                                     $(data).appendTo($(".main_section")).addClass('active');
                                     $(".course-empty").remove();
                                     alert("Course Added!");
