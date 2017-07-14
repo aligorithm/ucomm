@@ -21,7 +21,7 @@ class Course extends Model
         return $this->activities()->create(compact('name','type','description'));
     }
 
-    public function students(){
+    public function users(){
         return $this->belongsToMany(User::class);
     }
 }

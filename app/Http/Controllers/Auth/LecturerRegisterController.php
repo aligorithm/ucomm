@@ -23,7 +23,7 @@ class LecturerRegisterController extends Controller
         $this->validate(request(),[
             'name' => 'required|string|max:255',
             'title' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
+            'email' => 'required|string|email|max:255|unique:lecturers',
             'password' => 'required|string|min:6|confirmed',
         ]);
         $lecturer = Lecturer::create([

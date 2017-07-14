@@ -147,7 +147,7 @@
                     <div class="courses">
                         <ul class="courses_list">
                         @foreach($courses as $course)
-                            <li style="list-style:none" @if($course == $courses->first()) class="active" @endif><a data-toggle="tab" href="#{{$course->id}}_tab">
+                            <li data-course-id="{{$course->id}}" style="list-style:none" @if($course == $courses->first()) class="active" @endif><a data-toggle="tab" href="#{{$course->id}}_tab">
                             <div class="row well">
                         <div class="course">
                             <div class="col-lg-9">

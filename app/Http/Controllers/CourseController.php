@@ -99,7 +99,10 @@ class CourseController extends Controller
         //
     }
     public function search($query){
-        $courses = Course::wherePivot(auth()->user()->id,false)->where('title','LIKE','%'.$query.'%')->get();
+        $courses = Course::whereDoesntHave('users', function ($q) {
+            global $query;
+            $q->where('title', 'like', '%'.$query.'%');
+        })->get();
         return view('partials.course-results',compact('courses'));
     }
     public function join(Course $course){
