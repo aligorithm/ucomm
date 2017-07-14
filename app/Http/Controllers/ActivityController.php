@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Activity;
 use Illuminate\Http\Request;
 use App\Course;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\Activity as ActivityMail;
 
 class ActivityController extends Controller
 {
@@ -43,6 +45,9 @@ class ActivityController extends Controller
         ]);
 
         $activity= $course->addActivity(request('name'),request('type'),request('description'));
+        foreach($course->users() as $student){
+            Mail::to($student->email)->send(new ActivityMail($student,$course,$activity));
+    }
         return view('partials.activity',compact('activity'));
     }
 
