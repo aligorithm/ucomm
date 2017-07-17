@@ -101,7 +101,7 @@
 
                         </div>
                         <div class="tab-pane" id="university">
-                            <form action="" class="submit-post">
+                            <form action="" id="submit-post-university">
                                 {{csrf_field()}}
                                 <input type="hidden" name="scope_type" value="University">
                                 <input type="hidden" name="scope_id" value="{{$university->id}}">
