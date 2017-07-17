@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
+use App\Post;
+use App\Topic;
 
 class HomeController extends Controller
 {
@@ -23,6 +26,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $university = auth()->user()->university()->firstOrFail();
+        $topics = Topic::all();
+        $faculty = auth()->user()->faculty()->firstOrFail();
+        return view('ucomm.home', compact('topics'),compact('faculty','university'));
     }
 }

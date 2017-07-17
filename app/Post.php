@@ -6,14 +6,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
-    protected $fillable = ['body','topic_id','user_id'];
+    protected $fillable = ['body','topic_id','user_id','scope_type','scope_id'];
 
     public function scope()
     {
         $this->morphTo();
     }
 
-    public function author(){
+    public function user(){
         return $this->belongsTo(User::class);
     }
     public function topic(){
@@ -34,6 +34,7 @@ class Post extends Model
     public function owner(){
         return ($this->user_id == auth()->user()->id);
     }
+
     public function likes(){
         return $this->morphMany('App\Like','liked');
     }

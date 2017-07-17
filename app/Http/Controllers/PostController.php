@@ -42,10 +42,7 @@ class PostController extends Controller
     {
         if ($post = $request->persist()) {
             session()->flash('message', 'Your post has been stored!');
-            return response()->json([
-                'status' => 201,
-                'data' => $post,
-            ]);
+            return view('partials.post',compact('post'));
         } else{
             return response()->json([
                 'status' => 500,

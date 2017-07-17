@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Faculty;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
@@ -45,12 +46,20 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
+
+    public function showRegistrationForm()
+    {
+        $faculties = Faculty::all();
+        return view('auth.register',compact('faculties'));
+    }
+
     protected function validator(array $data)
     {
         return Validator::make($data, [
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'matric_number' => 'required|string|max:255|unique:users',
+            'faculty_id' => 'required|max:255',
             'password' => 'required|string|min:6|confirmed',
         ]);
     }
@@ -66,6 +75,9 @@ class RegisterController extends Controller
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
+            'matric_number' => $data['matric_number'],
+            'faculty_id' => $data['faculty_id'],
+            'university_id' => 1,
             'password' => bcrypt($data['password']),
         ]);
     }

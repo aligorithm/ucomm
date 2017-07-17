@@ -138,7 +138,7 @@
                 <div class="row">
                     <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <label>Faculty</label>
-                        <select name="Faculty" class="form-control">
+                        <select name="faculty_id" class="form-control">
                             <option> -Select Faculty- </option>
                             @foreach($faculties as $faculty)
                                 <option value="{{$faculty->id}}">{{$faculty->name}}</option>
