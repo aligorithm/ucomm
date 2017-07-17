@@ -14,22 +14,55 @@
             <div class="navbar-header">
                 <button  type="button" class="navbar-toggle"
                          data-toggle="collapse" data-target="#myNavbar">
-                    <span class="icon-bar bar1"></span>
-                    <span class="icon-bar bar2"></span>
-                    <span class="icon-bar bar3"></span>
+                    <span class="fa fa-bars"></span>
                 </button>
                 <a class="navbar-brand white" href="#" style="margin-bottom:14px; height:60px;">
 
-                    U-Class </a>
+                    UComm </a>
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav navbar-left"style="height:60px;padding:0;margin:0;">
                     <li>
                         <a href="/" style="height:60px;" class="white"><span class="fa fa-envelope-o"></span> News Feed</a>
                     </li>
-                    <li class="">
-                        <a  style="height:60px;" class="white" data-toggle="" href="#">Fola Oluwatobi
-                            <span class="fa fa-caret-down"></span></a>
+                </ul>
+                <ul class="nav navbar-nav">
+                    <li><a href="{{route('student.dashboard')}}" class="white">Uclass</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown user user-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <img src="" class="user-image" alt="User Image">
+                            <span class="hidden-xs white">{{auth()->user()->name}}</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <!-- User image -->
+                            <li class="user-header">
+                                <img src="" class="img-circle" alt="User Image">
+
+                                <p style="color:black;">
+                                    {{auth()->user()->name}}
+                                    <small>Student</small>
+                                </p>
+                            </li>
+
+                            <!-- Menu Footer-->
+                            <li class="user-footer">
+                                <div class="pull-left">
+                                    <a href="/profile" class="btn btn-default btn-flat">Profile</a>
+                                </div>
+                                <div class="pull-right">
+                                    <a href="#" class="btn btn-default btn-flat"
+                                       onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
+                                    >
+                                        <i class="fa fa-fw fa-power-off"></i> Logout
+                                    </a>
+                                    <form id="logout-form" action="{{route('logout')}}" method="POST" style="display: none;">
+                                        {{ csrf_field() }}
+                                    </form>
+                                </div>
+                            </li>
+                        </ul>
                     </li>
                 </ul>
             </div>
