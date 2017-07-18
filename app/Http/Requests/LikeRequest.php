@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use App\Like;
+use App\Post;
 
 class LikeRequest extends FormRequest
 {
@@ -30,11 +31,9 @@ class LikeRequest extends FormRequest
         ];
     }
 
-    public function persist(){
-        $like = new Like();
-        $like->liked_type = 'App\\' . request('liked_type');
-        $like->liked_id = request('liked_id');
-        $like->user_id = auth()->user()->id;
-        $like->save();
+    public function persist(Post $post){
+        $like = $post->like(auth()->user());
+
+        return $like;
     }
 }

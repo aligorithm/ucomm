@@ -40,4 +40,24 @@ $(document).ready(function(){
         });
     });
 
+    $(".like-post").submit(function (event) {
+        post = $(this);
+        event.preventDefault();
+        var data = new FormData(this);
+        var post_id = $(this).data('post-id');
+        $.post({
+            processData: false,
+            contentType: false,
+            data: data,
+            url: '/posts/' + post_id + '/likes',
+            success : function (data) {
+                if(data.status===201){
+                    console.log(data.data);
+                    $(".likes-count[data-post-id="+post_id+"]").text(data.data);
+                    $(".like-button[data-post-id="+post_id+"]").addClass('disabled');
+                }
+            }
+        });
+    });
+
 });

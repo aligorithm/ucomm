@@ -2,24 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Like;
+use App\Message;
 use Illuminate\Http\Request;
-use App\Http\Requests\LikeRequest;
-use App\Post;
 
-class LikeController extends Controller
+class MessageController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Post $post)
+    public function index()
     {
-        $likes = $post->likes();
-        return response()->json([
-            'data' => $likes,
-        ]);
+        //
     }
 
     /**
@@ -38,22 +33,18 @@ class LikeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(LikeRequest $request,Post $post)
+    public function store(Request $request)
     {
-        $like = $request->persist($post);
-        return response()->json([
-            'status' => 201,
-            'data' => count($post->likes()->get()),
-        ]);
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Like  $like
+     * @param  \App\Message  $message
      * @return \Illuminate\Http\Response
      */
-    public function show(Like $like)
+    public function show(Message $message)
     {
         //
     }
@@ -61,10 +52,10 @@ class LikeController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Like  $like
+     * @param  \App\Message  $message
      * @return \Illuminate\Http\Response
      */
-    public function edit(Like $like)
+    public function edit(Message $message)
     {
         //
     }
@@ -73,10 +64,10 @@ class LikeController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Like  $like
+     * @param  \App\Message  $message
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Like $like)
+    public function update(Request $request, Message $message)
     {
         //
     }
@@ -84,14 +75,11 @@ class LikeController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Like  $like
+     * @param  \App\Message  $message
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Like $like)
+    public function destroy(Message $message)
     {
-        $like->delete();
-        return response()->json([
-            'data' => $like,
-        ]);
+        //
     }
 }

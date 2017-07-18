@@ -6,6 +6,7 @@
     <link rel="stylesheet" type="text/css" href="{{env('APP_URL')}}/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="{{env('APP_URL')}}/fonts/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="{{env('APP_URL')}}/css/ucomm.css">
+    <title>Ucomm</title>
 </head>
 <body>
 <header>
@@ -112,7 +113,10 @@
                                 @forelse($faculty->posts as $post)
                                     <div class="row post-content">
                                         <div class="col-lg-12">
-                                            <h4><b>{{$post->user->name}}</b> <small>In {{$post->topic->name}}</small></h4>
+                                            <h4><b>{{$post->user->name}}</b>
+                                                <small>In {{$post->topic->name}}
+                                                    <span class="fa fa-time">	{{$post->created_at->diffForHumans()}}</span>
+                                                </small></h4>
                                         </div>
                                         <div class="col-lg-2">
                                             <p>
@@ -120,10 +124,17 @@
                                         </div>
                                         <div class="col-lg-10">
                                             <p>
-                                                {{$post->body}}<br>
-                                                <span class="fa fa-thumbs-up"> 10 Likes</span>
-                                                <span class="fa fa-comments"> 10 comments</span> <span class="fa fa-time">	5 hours ago</span>
+                                                {{$post->body}}
                                             </p>
+                                            <div class="row">
+                                            <form action="" class="like-post col-xs-6" data-post-id="{{$post->id}}">
+                                                {{csrf_field()}}
+                                                <input type="hidden" name="liked_type" value="Post">
+                                                <input type="hidden" name="liked_id" value="{{$post->id}}">
+                                                <button type="submit" class="btn like-button"data-post-id="{{$post->id}}"><span class="fa fa-thumbs-up"></span> <span class="likes-count" data-post-id="{{$post->id}}">{{count($post->likes)}}</span></button>
+                                            </form>
+                                       <button class="btn col-xs-6" data-post-id="{{$post->id}}"><span class="fa fa-comments" data-post-id="{{$post->id}}"> {{count($post->comments)}}</span></button>
+                                        </div>
                                         </div>
                                     </div>
                                     @empty
