@@ -37,9 +37,15 @@ class CommentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Post $post)
     {
-        //
+        if ($comment = $post->addComment(auth()->user(), request('body'))){
+            return view('partials.comment', compact('comment'));
+        }else{
+            return response()->json([
+                'message' => 'error',
+            ]);
+        }
     }
 
     /**

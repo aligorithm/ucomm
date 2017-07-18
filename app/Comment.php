@@ -31,4 +31,7 @@ class Comment extends Model
     public function like(User $user){
         return $this->likes()->create(['user_id' => $user->id]);
     }
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
 }

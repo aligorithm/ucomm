@@ -60,4 +60,23 @@ $(document).ready(function(){
         });
     });
 
+    $(".comment-post").submit(function (event) {
+        event.preventDefault();
+        $(".submit-comment[data-post-id="+post_id+"]").addClass('disabled');
+        var data = new FormData(this);
+        var post_id = $(this).data('post-id');
+        $.post({
+            processData: false,
+            contentType: false,
+            data: data,
+            url: '/posts/' + post_id + '/comments',
+            success : function (data) {
+                if(data){
+                    $(data).hide().prependTo(".comment-section[data-post-id="+post_id+"]").fadeIn();
+                    $(".submit-comment[data-post-id="+post_id+"]").removeClass('disabled');
+                }
+            }
+        });
+    });
+
 });
