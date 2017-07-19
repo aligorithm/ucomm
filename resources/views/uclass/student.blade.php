@@ -111,7 +111,7 @@
                         </div>
                     </div>
                 @empty
-                    <div class="alert alert-warning">No courses yet.</div>
+                    <div class="alert alert-warning course-empty">No courses yet.</div>
                 @endforelse
             </div>
 

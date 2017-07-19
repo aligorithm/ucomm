@@ -87,8 +87,26 @@ $(document).ready(function () {
             contentType: false,
             url: '/uclass/courses/'+course_id+'/join',
             success: function (data) {
-                if(data.status === 201) {
+                if(data) {
                     button.html("Joined.").addClass('btn-disabled');
+                    $(".tab-pane.active").removeClass('active');
+                    $("li.active").removeClass('active');
+                    $(data).hide().appendTo($(".courses_list")).addClass('active').fadeIn(function () {
+                        course_id = $(this).attr('data-course-id');
+                        $.get({
+                            processData: false,
+                            contentType: false,
+                            url: '/uclass/courses/'+course_id,
+                            success: function (data) {
+                                if(data) {
+                                    $(data).appendTo($(".main_section")).addClass('active');
+                                    $(".course-empty").remove();
+                                    alert("Course Added!");
+                                    hideModal();
+                                }
+                            }
+                        });
+                    });
                 }
             }
         });

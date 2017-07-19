@@ -105,9 +105,6 @@ class CourseController extends Controller
     public function join(Course $course){
         $student = User::find(auth()->user()->id);
         $student->courses()->attach($course);
-        return response()->json([
-            'status' => 201,
-            'data' => $student,
-        ]);
+        return view('partials.course',compact('course'));
     }
 }
