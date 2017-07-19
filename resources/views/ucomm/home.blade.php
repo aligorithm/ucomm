@@ -291,26 +291,28 @@
                 <div class="col-lg-12">
                     <ul class="nav nav-pills responsive-tabs">
                         <li ><br><span class="fa fa-envelope"></span></li>
-                        <li class="active"><a href="#messages" data-toggle="tab">Messages</a></li>
-                        <li><a href="#contacts" data-toggle="tab">Contacts</a></li>
+                        <li class=""><a href="#messages" data-toggle="tab">Messages</a></li>
+                        <li><a class="active" href="#contacts" data-toggle="tab">Contacts</a></li>
                     </ul>
                     <div class="tab-content clearfix tab-container">
-                        <div class="tab-pane active" id="message">
+                        <div class="tab-pane" id="messages">
                             <div class="row">
+                                <div class="message-logs">
+                                {{--@foreach($user->messages as $message)--}}
+                                {{--<div class="col-lg-10 msg_content">--}}
+                                    {{--<p><b>{{$message->sender}}:</b><br>--}}
+                                        {{--{{$message->body}}.</p>--}}
+                                {{--</div>--}}
+                                {{--@endforeach--}}
 
-                                <div class="col-lg-10 msg_content">
-                                    <p><b>Uzo:</b><br>
-                                        Hi!, I saw your work on MVC architecture.</p>
-                                </div>
-                                <div class="col-lg-10 col-lg-offset-2 mine msg_content">
-                                    <p><b>ME:</b><br>
-                                        Hi!, I saw your work on MVC architecture.</p>
                                 </div>
                                 <div class="col-lg-12">
+                                    <form action="" id="send-message">
+                                        {{csrf_field()}}
                                     <div class="form-group">
-                                        <textarea name="message" class="form-control" cols="12" rows="4"></textarea>
-                                        <button  class="btn btn-primary shift-right" style="margin-top:2px;">Send</button>
-                                    </div>
+                                        <textarea name="body" class="form-control" cols="12" rows="4"></textarea>
+                                        <button  class="btn btn-primary shift-right submit-message" style="margin-top:2px;">Send</button>
+                                    </div></form>
 
                                 </div>
 
@@ -319,7 +321,12 @@
 
 
                         </div>
-                        <div class="tab-pane" id="contacts">
+                        <div class="tab-pane active" id="contacts">
+                            <ul class="list-group">
+                                @foreach($faculty->students as $student)
+                                    <a href="#messages" data-toggle="tab"><li class="list-group-item">{{$student->name}}</li></a>
+                                    @endforeach
+                            </ul>
                         </div>
                     </div>
                 </div>

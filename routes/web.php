@@ -42,6 +42,8 @@ Route::post('posts/comments/replies', 'ReplyController@store');
 Route::post('posts/comments/replies/{reply}/edit', 'ReplyController@update');
 Route::post('posts/comments/replies/{reply}/delete', 'ReplyController@destroy');
 
+Route::post('messages', 'MessageController@store');
+
 Route::get('/{slug}', 'UserController@show');
 
 Route::prefix('uclass')->group(function (){

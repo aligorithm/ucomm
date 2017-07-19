@@ -71,12 +71,32 @@ $(document).ready(function(){
             data: data,
             url: '/posts/' + post_id + '/comments',
             success : function (data) {
+                $(".submit-comment[data-post-id="+post_id+"]").removeClass('disabled');
                 if(data){
                     $(data).hide().prependTo(".comment-section[data-post-id="+post_id+"]").fadeIn();
-                    $(".submit-comment[data-post-id="+post_id+"]").removeClass('disabled');
+                    $("input").val([]);
                 }
             }
         });
     });
+
+    $("#send-message").submit(function (event) {
+        event.preventDefault();
+        $(".submit-message").addClass('disabled');
+        var data = new FormData(this);
+        $.post({
+            processData: false,
+            contentType: false,
+            data: data,
+            url: '/messages',
+            success : function (data) {
+                $(".submit-message").removeClass('disabled');
+                if(data){
+                    $(data).hide().appendTo(".message-logs").fadeIn();
+                    $("input").val([]);
+                }
+            }
+        });
+    })
 
 });

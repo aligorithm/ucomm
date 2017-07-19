@@ -35,7 +35,10 @@ class MessageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $message = auth()->user()->messages()->create([
+            'body' => request('body'),
+        ]);
+        return view('partials.message',compact('message'));
     }
 
     /**
